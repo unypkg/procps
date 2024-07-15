@@ -51,9 +51,9 @@ echo "newer" >release-"$pkgname"
 
 git_clone_source_repo
 
-#cd "$pkgname" || exit
-#./autogen.sh
-#cd /uny/sources || exit
+cd "$pkgname" || exit
+./autogen.sh
+cd /uny/sources || exit
 
 archiving_source
 
