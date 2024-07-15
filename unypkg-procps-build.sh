@@ -6,7 +6,7 @@ set -vx
 ######################################################################################################################
 ### Setup Build System and GitHub
 
-##apt install -y autopoint
+apt install -y autopoint
 
 wget -qO- uny.nu/pkg | bash -s buildsys
 
