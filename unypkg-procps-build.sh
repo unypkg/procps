@@ -35,7 +35,7 @@ mkdir -pv /uny/sources
 cd /uny/sources || exit
 
 pkgname="procps"
-pkggit="https://github.com/procps/procps.git refs/tags/*"
+pkggit="https://gitlab.com/procps-ng/procps.git refs/tags/*"
 gitdepth="--depth=1"
 
 ### Get version info from git remote
@@ -78,10 +78,12 @@ get_include_paths
 unset LD_RUN_PATH
 
 ./configure \
-    --prefix=/uny/pkg/"$pkgname"/"$pkgver"
+    --prefix=/uny/pkg/"$pkgname"/"$pkgver" \
+    --docdir=/uny/pkg/"$pkgname"/"$pkgver"/share/doc/procps-ng \
+    --disable-static
 
 make -j"$(nproc)"
-make -j"$(nproc)" check 
+make -j"$(nproc)" -k check 
 make -j"$(nproc)" install
 
 ####################################################
